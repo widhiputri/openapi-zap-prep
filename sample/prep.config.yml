@@ -1,0 +1,27 @@
+# openapi-zap-prep sample config
+# Run: openapi-zap-prep --config prep.config.yml
+
+specs:
+  - path: specs/public-api.json
+    label: public-api
+    expectedPrefix: /api/v1
+  - path: specs/admin-api.yaml
+    label: admin-api
+    expectedPrefix: /api/v1/admin
+
+# Auto-fix options (all enabled by default, set to false to disable)
+fixes:
+  renameSchemaKeys: true        # rename schema keys with spaces/special chars
+  normalizePathPrefixes: true   # add missing path prefix (requires expectedPrefix above)
+  removeDuplicatePaths: true    # keep first occurrence, remove duplicates
+  repairMissingResponses: true  # add stub 200 response to write methods missing responses
+  injectPathParamExamples: true # fill empty path param examples from the map below
+
+# Values to inject into empty path param "example" fields.
+# Key = param name as it appears in the spec, value = a real ID from your test environment.
+# Without these, ZAP sends the literal "{userId}" string in the URL → 404 on every request.
+examples:
+  userId:    "usr_01HXYZ1234567890"
+  productId: "prod_abc123"
+  orderId:   "ord_20240501_001"
+  categoryId: "cat_electronics"

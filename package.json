@@ -1,0 +1,33 @@
+{
+  "name": "openapi-zap-prep",
+  "version": "0.1.0",
+  "description": "Validate and sanitise OpenAPI specs before ZAP scanning. Detects missing examples, duplicate paths, bad schema refs, and ZAP-specific issues. Auto-fixes into .tmp.json copies.",
+  "keywords": ["openapi", "zap", "security", "owasp", "swagger", "validate", "sanitise"],
+  "author": "Widhi Putri",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/widhiputri/openapi-zap-prep.git"
+  },
+  "homepage": "https://github.com/widhiputri/openapi-zap-prep#readme",
+  "bugs": {
+    "url": "https://github.com/widhiputri/openapi-zap-prep/issues"
+  },
+  "main": "src/prep.js",
+  "bin": {
+    "openapi-zap-prep": "bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "sample/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
